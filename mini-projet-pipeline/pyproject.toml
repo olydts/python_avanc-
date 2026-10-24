@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "txpipe"
+version = "0.1.0"
+description = "Mini pipeline de transactions financières (CSV -> SQLite)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "mypy>=1.10"]
+
+[project.scripts]
+txpipe = "txpipe.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+strict = true
+mypy_path = "src"
+explicit_package_bases = true
